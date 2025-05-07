@@ -7,3 +7,4 @@
 """
 from .self_attention import ScaledDotProductAttention
 from .se_attention import SEAttention
+from .cbam import CBAM, SpatialAttention, ChannelAttention
