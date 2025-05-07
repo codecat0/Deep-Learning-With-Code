@@ -86,4 +86,4 @@ if __name__ == '__main__':
     inp = torch.randn(8, 50, 512)
     sa = ScaledDotProductAttention(d_model=512, d_k=64, d_v=64, num_heads=8)
     out = sa(inp, inp, inp)
-    print(out.shape)
+    print(out.shape)   # torch.Size([8, 50, 512])
