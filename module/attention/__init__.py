@@ -6,3 +6,4 @@
 @Date   :2025/5/7 18:51
 """
 from .self_attention import ScaledDotProductAttention
+from .se_attention import SEAttention
