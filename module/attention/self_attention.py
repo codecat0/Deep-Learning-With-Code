@@ -8,6 +8,7 @@
 import torch
 import torch.nn as nn
 from torch.nn import init
+from typing import Optional, Type
 
 
 class ScaledDotProductAttention(nn.Module):
@@ -17,7 +18,12 @@ class ScaledDotProductAttention(nn.Module):
     ref: https://arxiv.org/abs/1706.03762
     """
 
-    def __init__(self, d_model, d_k, d_v, num_heads=4, dropout=0.1):
+    def __init__(self,
+                 d_model: Optional[int],
+                 d_k: Optional[int],
+                 d_v: Optional[int],
+                 num_heads: int = 4,
+                 dropout: float = 0.1) -> None:
         """
         :param d_model: Output dimensionality of the model
         :param d_k: Dimensionality of queries and keys
@@ -39,7 +45,12 @@ class ScaledDotProductAttention(nn.Module):
 
         self.init_weights()
 
-    def forward(self, queries, keys, values, attn_mask=None, attn_weights=None):
+    def forward(self,
+                queries: torch.Tensor,
+                keys: torch.Tensor,
+                values: torch.Tensor,
+                attn_mask: torch.Tensor = None,
+                attn_weights: torch.Tensor = None) -> torch.Tensor:
         """
         :param queries: Queries (b_s, nq, d_model)
         :param keys: Keys (b_s, nk, d_model)

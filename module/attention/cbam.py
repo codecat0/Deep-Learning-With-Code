@@ -8,6 +8,7 @@
 import torch
 import torch.nn as nn
 from torch.nn import init
+from typing import Optional, Type
 
 
 class ChannelAttention(nn.Module):
@@ -15,7 +16,9 @@ class ChannelAttention(nn.Module):
     Channel Attention
     """
 
-    def __init__(self, in_planes, ratio=16):
+    def __init__(self,
+                 in_planes: Optional[int],
+                 ratio: int = 16) -> None:
         super(ChannelAttention, self).__init__()
         self.avg_pool = nn.AdaptiveAvgPool2d(1)
         self.max_pool = nn.AdaptiveMaxPool2d(1)
@@ -27,7 +30,7 @@ class ChannelAttention(nn.Module):
 
         self.sigmoid = nn.Sigmoid()
 
-    def forward(self, x):
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
         avgout = self.avg_pool(x)
         maxout = self.max_pool(x)
         avgout = self.ce(avgout)
@@ -41,13 +44,14 @@ class SpatialAttention(nn.Module):
     Spatial Attention
     """
 
-    def __init__(self, kernel_size=7):
+    def __init__(self,
+                 kernel_size: int = 7) -> None:
         super(SpatialAttention, self).__init__()
 
         self.conv = nn.Conv2d(2, 1, kernel_size=kernel_size, padding=kernel_size // 2, bias=False)
         self.sigmoid = nn.Sigmoid()
 
-    def forward(self, x):
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
         avgout = torch.mean(x, dim=1, keepdim=True)
         maxout, _ = torch.max(x, dim=1, keepdim=True)
         x = torch.cat([avgout, maxout], dim=1)
@@ -61,13 +65,16 @@ class CBAM(nn.Module):
     ref: https://arxiv.org/abs/1807.06521
     """
 
-    def __init__(self, in_planes, ratio=16, kernel_size=7):
+    def __init__(self,
+                 in_planes: Optional[int],
+                 ratio: int = 16,
+                 kernel_size: int = 7) -> None:
         super(CBAM, self).__init__()
         self.ca = ChannelAttention(in_planes, ratio=ratio)
         self.sa = SpatialAttention(kernel_size=kernel_size)
         self.init_weights()
 
-    def forward(self, x):
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
         b, c, _, _ = x.size()
         out = self.ca(x) * x
         out = self.sa(out) * out

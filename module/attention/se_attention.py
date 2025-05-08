@@ -8,6 +8,7 @@
 import torch
 import torch.nn as nn
 from torch.nn import init
+from typing import Optional, Type
 
 
 class SEAttention(nn.Module):
@@ -16,7 +17,9 @@ class SEAttention(nn.Module):
     ref: https://arxiv.org/abs/1709.01507
     """
 
-    def __init__(self, in_dim, reduction=16):
+    def __init__(self,
+                 in_dim: Optional[int],
+                 reduction: int = 16) -> None:
         """
         :param in_dim: input dimension
         :param reduction: reduction ratio
@@ -31,7 +34,7 @@ class SEAttention(nn.Module):
         )
         self.init_weights()
 
-    def forward(self, x):
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
         b, c, _, _ = x.size()
         y = self.avg_pool(x).view(b, c)
         y = self.fc(y).view(b, c, 1, 1)
