@@ -1,5 +1,5 @@
 # Attention 模块
-## 1. Self-Attention
+## 1. [Self-Attention](https://arxiv.org/abs/1706.03762)
 ### 1.1 简介
 Self-Attention 是 Transformer 模型的核心组件，它允许模型在处理序列数据时能够关注到序列中不同位置的信息。与传统循环神经网络（RNN）或卷积神经网络（CNN）相比，Self-Attention 能够并行地处理所有输入位置的关联信息，从而提高了模型的效率和性能。
 ### 1.2 工作原理
@@ -28,7 +28,7 @@ out = sa(inp, inp, inp)
 print(out.shape)   # torch.Size([8, 50, 512])
 ```
 
-## 2. SE-Attention
+## 2. [SE-Attention](https://arxiv.org/abs/1709.01507)
 ### 2.1 简介
 SE-Attention（Squeeze-and-Excitation Attention）是一种用于增强深度神经网络特征表示的注意力机制。它通过自适应地重新校准通道维度上的特征响应，使得模型能够更加关注于重要的信息。
 ### 2.2 工作原理
@@ -60,7 +60,7 @@ out = se(inp)
 print(out.shape)   # torch.Size([4, 512, 7, 7])
 ```
 
-## 3. CBAM-Attention
+## 3. [CBAM-Attention](https://arxiv.org/abs/1807.06521)
 ### 3.1 简介
 CBAM（Convolutional Block Attention Module）是一种结合了通道注意力和空间注意力机制的模块，旨在提高深度神经网络对特征表示的关注能力。
 ### 3.2 工作原理

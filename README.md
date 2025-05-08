@@ -22,3 +22,6 @@
 - [ScaledDotProductAttention](https://github.com/codecat0/Deep-Learning-With-Code/blob/master/module/attention/self_attention.py)：[Attention is All You Need](https://arxiv.org/abs/1706.03762)
 - [SEAttention](https://github.com/codecat0/Deep-Learning-With-Code/blob/master/module/attention/se_attention.py)：[Squeeze-and-Excitation Attention](https://arxiv.org/abs/1709.01507)
 - [CBAM](https://github.com/codecat0/Deep-Learning-With-Code/blob/master/module/attention/cbam.py)：[CBAM: Convolutional Block Attention Module](https://arxiv.org/abs/1807.06521)
+
+#### Pooling模块
+- [BlurPooling](https://github.com/codecat0/Deep-Learning-With-Code/blob/master/module/pool/blur_pool.py)：[Making Convolutional Networks Shift-Invariant Again](https://arxiv.org/pdf/1904.11486.pdf)
