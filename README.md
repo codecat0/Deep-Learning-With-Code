@@ -18,10 +18,10 @@
 ```
 
 ### 2.1 module 核心代码模块
-#### Attention模块
+#### [Attention模块](https://github.com/codecat0/Deep-Learning-With-Code/blob/master/docs/module_docs/Attention.md)
 - [ScaledDotProductAttention](https://github.com/codecat0/Deep-Learning-With-Code/blob/master/module/attention/self_attention.py)：[Attention is All You Need](https://arxiv.org/abs/1706.03762)
 - [SEAttention](https://github.com/codecat0/Deep-Learning-With-Code/blob/master/module/attention/se_attention.py)：[Squeeze-and-Excitation Attention](https://arxiv.org/abs/1709.01507)
 - [CBAM](https://github.com/codecat0/Deep-Learning-With-Code/blob/master/module/attention/cbam.py)：[CBAM: Convolutional Block Attention Module](https://arxiv.org/abs/1807.06521)
 
-#### Pooling模块
+#### [Pooling模块](https://github.com/codecat0/Deep-Learning-With-Code/blob/master/docs/module_docs/Pooling.md)
 - [BlurPooling](https://github.com/codecat0/Deep-Learning-With-Code/blob/master/module/pool/blur_pool.py)：[Making Convolutional Networks Shift-Invariant Again](https://arxiv.org/pdf/1904.11486.pdf)
