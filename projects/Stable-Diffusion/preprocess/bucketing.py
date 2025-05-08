@@ -65,7 +65,7 @@ def make_bucktets(args):
     return buckets, ratios
 
 
-def resize_image(file, ratios, buckets, args):
+def resize_image(file):
     """
     根据给定的比例和尺寸桶，调整图像尺寸并裁剪到合适的尺寸。
 
