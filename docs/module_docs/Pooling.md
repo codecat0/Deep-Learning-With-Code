@@ -9,6 +9,7 @@ BlurPooling的工作原理类似于传统的池化操作，如最大池化（Max
 3. **可选的下采样**：在某些实现中，为了进一步减少计算量，可以在模糊后的结果上进行下采样操作，例如使用最近邻插值法或双线性插值法减小尺寸。
 ### 1.3 模型架构图
 ![](https://pic1.imgdb.cn/item/681c773b58cb8da5c8e58bcf.png)
+
 ![](https://pic1.imgdb.cn/item/681c772558cb8da5c8e58bba.png)
 ### 1.4 使用方法
 ```python
